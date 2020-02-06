@@ -1,0 +1,139 @@
+$dark: #151515;
+
+@mixin after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -1px 0 red;
+  top: 0;
+  color: white;
+  overflow: hidden;
+  animation: noise-anim 2s infinite linear alternate-reverse;
+}
+
+@mixin before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 1px 0 blue;
+  top: 0;
+  color: white;
+  overflow: hidden;
+  animation: noise-anim-2 15s infinite linear alternate-reverse;
+}
+
+
+.start-preloader{
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: $dark;
+  height: 100vh;
+  min-width: 100vw;
+  z-index: 99999;
+  animation: rotate .5s linear infinite;
+
+  .str-loader-circle{
+    position: absolute;
+    left: 50%;
+    top: 50%;  
+    transform: translate(-50%, 5%);
+    height: 260px;
+    width: 260px;
+    border-radius: 100%;
+    border: 1px solid #fff;
+    display: table;
+    text-align: center;
+    @media (max-width:550px){
+          transform: translate(-50%, -50%);
+      }
+  }
+  p{
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: table-cell;
+      vertical-align: middle;
+      text-transform: uppercase;
+      color: #fff;
+      font-family: var(--teko);
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      font-weight: 300;
+      &::after{
+          @include after();
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+      }
+      &::before{
+          @include before();
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+      }
+  }
+}
+
+
+
+  @keyframes noise-anim {
+    $steps: 20;
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}% 0 #{$bottom}%  0);
+      }
+    }
+  }
+  .slide-inner--info h1::after {
+    @include after();
+  }
+  
+  @keyframes noise-anim-2 {
+    $steps: 20;
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}% 0 #{$bottom}%  0);
+      }
+    }
+  }
+  .slide-inner--info h1::before {
+    @include before();
+  }
+
+
+  .glitcher{
+      position: relative;
+  }
+  .glitcher::after{
+      @include after();
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+  }
+  .glitcher::before{
+      @include before();
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+  .glitcher-nom{
+    position: relative;
+}
+.glitcher-nom::after{
+    @include after();
+    left: 1px;
+}
+.glitcher-nom::before{
+    @include before();
+    left: -1px;
+}
+
+
+
+
