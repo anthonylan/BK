@@ -367,3 +367,23 @@ window.addEventListener('load', () => {
 })
     
 
+
+//Give video full widht
+
+document.querySelectorAll('.v-video__wrapper').forEach((el) => {
+    const closeScreen = document.querySelector('.close-fullscreen')
+    const rmHead = document.querySelector('.alt-rm')
+    el.addEventListener('click', () => {
+        el.classList.add('v-full-width')
+        el.querySelector('video').controls = true
+        closeScreen.style.display = 'block'
+        rmHead.style.display = 'none'
+    })
+
+   closeScreen.addEventListener('click', () => {
+       el.classList.remove('v-full-width')
+       el.querySelector('video').controls = false
+       closeScreen.style.display = 'none'
+       rmHead.style.display = 'block'
+    })
+})
