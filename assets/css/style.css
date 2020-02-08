@@ -2174,6 +2174,7 @@ border-radius: 4px !important;
 
     .v-multi video{
       width: 100%;
+      max-height: 100%;
     }
     .v-multi .pt-3{
       padding-top: 10%;
@@ -2186,7 +2187,7 @@ border-radius: 4px !important;
       position: fixed;
       left: 0;
       top: 0;
-      height: 100vh;
+      height: 100%;
       width: 100vw;
       z-index: 10;
       padding-top: 0%;
@@ -2202,6 +2203,9 @@ border-radius: 4px !important;
       color: #fff;
       z-index: 20;
       display: none;
+    }
+    .v-multi h2{
+      color: #fff;
     }
     @media (max-width:550px){
       .v-multi{
