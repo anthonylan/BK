@@ -1711,7 +1711,7 @@ border-radius: 4px !important;
 
 .full-screen{
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
 }
 .full-screen video{
@@ -1732,7 +1732,7 @@ border-radius: 4px !important;
 
 
 ::-webkit-scrollbar {
-    width: 1em;
+    width: 0em;
     }
     
     ::-webkit-scrollbar-track {
@@ -1751,8 +1751,65 @@ border-radius: 4px !important;
         }
     }
 
+    .see-videos{
+      position: fixed;
+      right: 1rem;
+      top: 1rem;
+      text-transform: uppercase;
+      font-family: var(--teko);
+      color: #fff;
+    }
+.br-videos{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  min-width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+.br-videos .br-inner{
+  width: 80%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+.br-inner ul li{
+  padding: 1rem 0;
+}
+.br-inner li a{
+  font-weight: 300;
+  color: #fff;
+  transition: all .3s;
+}
+.br-inner li a:hover{
+  opacity: .5;
+}
+.br-inner h3{
+  font-family: var(--teko);
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+.close-videos{
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  width: 40px;
+}
 
-
+@media (max-width:550px){
+  .br-videos{
+    overflow-y: scroll;
+  }
+  .br-videos .br-inner{
+    flex-direction: column;
+  }
+  .close-videos{
+    position: fixed;
+  }
+}
 
 /*  --*/
 .start-preloader {
@@ -2188,11 +2245,12 @@ border-radius: 4px !important;
       position: fixed;
       left: 0;
       top: 0;
-      height: 100%;
-      width: 100vw;
+      height: 500px !important;
+      width: 100%;
       z-index: 10;
       padding-top: 0%;
-      margin-top: 0;
+      margin-top: 0; 
+      background-color: rgba(0, 0, 0, 0.5);
     }
 
     .v-multi .close-fullscreen{
