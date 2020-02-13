@@ -370,7 +370,7 @@ window.addEventListener('load', () => {
 
 //Give video full widht
 
-document.querySelectorAll('.v-video__wrapper').forEach((el) => {
+document.querySelectorAll('.v-target').forEach((el) => {
     const closeScreen = document.querySelector('.close-fullscreen')
     const rmHead = document.querySelector('.alt-rm')
     el.addEventListener('click', () => {
@@ -384,6 +384,14 @@ document.querySelectorAll('.v-video__wrapper').forEach((el) => {
        closeScreen.style.display = 'none'
        rmHead.style.display = 'block'
     })
+})
+
+
+document.querySelector('.v-escape-video').addEventListener('click', () => {
+    window._wq = window._wq || [];
+    _wq.push({ id: "ickh90oc1t", onReady: function(video) {
+        video.requestFullscreen();
+    }});
 })
 
 
