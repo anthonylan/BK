@@ -361,9 +361,7 @@ $('.enter-holder').on('mouseleave', () => {
 
 
 window.addEventListener('load', () => {
-    setTimeout(() => {
-        TweenMax.to('.start-preloader', .8, { display: 'none', autoAlpha: 0})
-     }, 2000)
+    TweenMax.to('.start-preloader', .8, { display: 'none', autoAlpha: 0})
 })
     
 
@@ -387,19 +385,43 @@ document.querySelectorAll('.v-target').forEach((el) => {
 })
 
 
-document.querySelector('.v-escape-video').addEventListener('click', () => {
-    window._wq = window._wq || [];
-    _wq.push({ id: "ickh90oc1t", onReady: function(video) {
-        video.requestFullscreen();
-    }});
-})
+
+if (document.querySelector('.v-escape-video')) {
+    document.querySelector('.v-escape-video').addEventListener('click', () => {
+        window._wq = window._wq || [];
+        _wq.push({ id: "ickh90oc1t", onReady: function(video) {
+            video.requestFullscreen();
+        }});
+    })
+}
+
+
 
 
 //SHOW ALL VIDOES WHILE WATCHING
-document.querySelector('.see-videos').addEventListener('click', () => {
-    TweenMax.to('.br-videos', .5, { display: 'block' })
-    //TweenMax.staggerFrom('.br-videos a', .5, {opacity: 0}, .0)
-})
-document.querySelector('.close-videos').addEventListener('click', () => {
-    TweenMax.to('.br-videos', .5, {display: 'none'})
-})
+if (document.querySelector('.see-videos')) {
+    document.querySelector('.see-videos').addEventListener('click', () => {
+        TweenMax.to('.br-videos', .5, { display: 'block' })
+        //TweenMax.staggerFrom('.br-videos a', .5, {opacity: 0}, .0)
+    })
+    document.querySelector('.close-videos').addEventListener('click', () => {
+        TweenMax.to('.br-videos', .5, {display: 'none'})
+    })
+}
+
+
+const navGallery = document.querySelector('.navbar-gallery')
+const msContainer  = document.querySelector('.ms-main-container')
+
+if (document.querySelector('.menu-gallery')) {
+
+    document.querySelector('.menu-gallery').addEventListener('click', (e) => {
+        navGallery.style.transform = 'translateY(0)'
+        msContainer.style.marginTop = '100%'
+    })
+
+    document.querySelector('.close-gallery-nav').addEventListener('click', () => {
+        navGallery.style.transform = 'translateY(-100%)'
+        msContainer.style.marginTop = '0%'
+    })
+}
